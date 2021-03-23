@@ -4,9 +4,7 @@
   "description": "api ecommerce",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
-    "dep": "npm i -D prettier eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-config-airbnb-base"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
