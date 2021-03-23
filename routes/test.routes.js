@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const {testController} = require('../controllers/test.controller')
 
 
-router.get('/',(req,res)=>{
-  res.status(200).json('test routing deployment')
-})
+router.get('/',testController)
 
 
 module.exports = router
