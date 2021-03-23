@@ -1,0 +1,34 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "api ecommerce",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UsefSalim/server-e-com.git"
+  },
+  "keywords": [
+    "Express",
+    "Node",
+    "MongoDb",
+    "Jwt",
+    "bcrypt"
+  ],
+  "author": "Salim Youssef",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UsefSalim/server-e-com/issues"
+  },
+  "homepage": "https://github.com/UsefSalim/server-e-com#readme",
+  "engines": {
+    "node": "14.15.3"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
