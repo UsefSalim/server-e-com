@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const testRoutes = require('./routes/test.routes');
+const categorieRoutes = require('./routes/Categorie.routes');
 
 const app = express();
 
@@ -21,7 +21,7 @@ mongoose
   .then(() => console.log('Mongo Db Connected'))
   .catch((err) => console.log(`error connection to the DataBase : ${err}`));
 // Routes
-app.use('/api', testRoutes);
+app.use('/api/categories', categorieRoutes);
 // app express
 app.listen(PORT, () => {
   console.log(`app listning : localhost:${PORT}`);
