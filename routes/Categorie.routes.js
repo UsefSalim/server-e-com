@@ -9,7 +9,7 @@ const {
   deletAllcategories,
   getOne,
   updatecategorie,
-} = require('../controllers/categorie.controllers');
+} = require('../controllers/Categorie.controllers');
 
 /// * ------------------------- categorie Route
 
