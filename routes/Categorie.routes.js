@@ -23,31 +23,31 @@ router.get('/', getAll);
      Desc    : Get One  categorie
      @Access : Pubic
 */
-// router.get('/:id', getOne);
+router.get('/:id', getOne);
 
-// /* ! @Route  : POST => /add
-//      Desc    : Create categorie
-//      @Access : Pubic
-// */
+/* ! @Route  : POST => /add
+     Desc    : Create categorie
+     @Access : Pubic
+*/
 
-// router.post('/add', addcategorie);
+router.post('/add', addcategorie);
 
-// /* ! @Route  : POST => /:id
-//      Desc    : Delete One categorie
-//      @Access : Pubic
-// */
-// router.delete('/:id', deletcategorie);
+/* ! @Route  : POST => /:id
+     Desc    : Delete One categorie
+     @Access : Pubic
+*/
+router.delete('/:id', deletcategorie);
 
-// /* ! @Route  : DELETE => /
-//      Desc    : Delete All categories
-//      @Access : Pubic
-// */
-// router.delete('/', deletAllcategories);
+/* ! @Route  : DELETE => /
+     Desc    : Delete All categories
+     @Access : Pubic
+*/
+router.delete('/', deletAllcategories);
 
-// /* ! @Route  : UPDATE => /:id
-//      Desc    : UPDATE  categorie
-//      @Access : Pubic
-// */
-// router.put('/:id', updatecategorie);
+/* ! @Route  : UPDATE => /:id
+     Desc    : UPDATE  categorie
+     @Access : Pubic
+*/
+router.put('/:id', updatecategorie);
 
 module.exports = router;
