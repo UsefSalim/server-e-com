@@ -21,7 +21,7 @@ mongoose
   .then(() => console.log('Mongo Db Connected'))
   .catch((err) => console.log(`error connection to the DataBase : ${err}`));
 // Routes
-app.use('/api/categories', categorieRoutes);
+app.use('/categories', categorieRoutes);
 // app express
 app.listen(PORT, () => {
   console.log(`app listning : localhost:${PORT}`);
