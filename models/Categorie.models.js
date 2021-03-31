@@ -7,6 +7,16 @@ const categorieSchema = Schema({
     type: String,
     required: true,
   },
+  souscategories: {
+    type: String,
+  },
+  products: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'product',
+      default: null,
+    },
+  ],
 });
 
 module.exports = model('categorie', categorieSchema);

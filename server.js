@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const authRoutes = require('./routes/auth.routes')
 const categorieRoutes = require('./routes/Categorie.routes');
 
 const app = express();
@@ -18,11 +19,13 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log('Mongo Db Connected'))
-  .catch((err) => console.log(`error connection to the DataBase : ${err}`));
+  .then(() => console.log('Mongo Db Connected ....'))
+  .catch((err) => console.log(`Error connection to the DataBase : ${err}`));
 // Routes
-app.use('/categories', categorieRoutes);
-// app express
-app.listen(PORT, () => {
+app.use('/api', authRoutes)
+app.use('/api/categories', categorieRoutes);
+
+app.listen(PORT, () =>
+{
   console.log(`app listning : localhost:${PORT}`);
 });
