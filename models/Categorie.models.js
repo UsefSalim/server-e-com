@@ -6,10 +6,9 @@ const categorieSchema = Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
   },
-  souscategories: {
-    type: String,
-  },
+  souscategories: [String],
   products: [
     {
       type: Schema.Types.ObjectId,
