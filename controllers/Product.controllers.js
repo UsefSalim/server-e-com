@@ -2,10 +2,10 @@
 // ------------- require mongoose ObjectId ----//
 const ObjectID = require('mongoose').Types.ObjectId;
 // -------------require models----------  //
-const product = require('../models/product.models');
+const product = require('../models/Product.models');
 
 // -------------require validations----------  //
-const { productValidations } = require('../validations/product.validations');
+const { productValidations } = require('../validations/Product.validations');
 
 /* ! @Route  : GET => api/products
      Desc    : Get all products

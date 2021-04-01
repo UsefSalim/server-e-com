@@ -9,7 +9,7 @@ const {
      deletAllproducts,
      getOne,
      updateproduct,
-} = require('../controllers/product.controllers');
+} = require('../controllers/Product.controllers');
 
 /// * ------------------------- product Route
 
