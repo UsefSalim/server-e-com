@@ -2,23 +2,27 @@
 // ------------- require mongoose ObjectId ----//
 const ObjectID = require('mongoose').Types.ObjectId;
 
+const Fawn = require('fawn');
+
+Fawn.init(mongoose);
 // -------------require models----------  //
 const product = require('../models/product.models');
 
 // -------------require validations----------  //
-const {
-  productValidations,
-} = require('../validations/product.validations');
+const { productValidations } = require('../validations/product.validations');
 
 /* ! @Route  : GET => api/products
      Desc    : Get all products
      @Access : Pubic
 */
-exports.getAll = async (req, res) => {
-  try {
+exports.getAll = async (req, res) =>
+{
+  try
+  {
     const all = await product.find();
     if (all) return res.status(200).json(all);
-  } catch (err) {
+  } catch (err)
+  {
     return res.status(400).json({ getAllproductError: err });
   }
 };
@@ -27,18 +31,21 @@ exports.getAll = async (req, res) => {
      Desc    : Get One  product
      @Access : Pubic
 */
-exports.getOne = async (req, res) => {
+exports.getOne = async (req, res) =>
+{
   if (!ObjectID.isValid(req.params.id))
     return res.status(404).json({
       getOneproductError: `l'ID ${req.params.id} n'est pas valid`,
     });
-  try {
+  try
+  {
     const currentproduct = await product.findOne({ _id: req.params.id });
     if (currentproduct) return res.status(200).json(currentproduct);
     return res.status(404).json({
       getOneproductError: `l'ID ${req.params.id} n'est pas disponible `,
     });
-  } catch (error) {
+  } catch (error)
+  {
     return res.status(400).json(error);
   }
 };
@@ -47,13 +54,18 @@ exports.getOne = async (req, res) => {
      Desc    : Create product
      @Access : Pubic
 */
-exports.addproduct = async (req, res) => {
+
+
+exports.addproduct = async (req, res) =>
+{
   const { error } = productValidations(req.body);
   if (error) return res.status(400).json(error.details[0].message);
   const newproduct = new product({ ...req.body });
-  try {
+  try
+  {
     if (await newproduct.save()) return res.status(201).json(newproduct);
-  } catch (err) {
+  } catch (err)
+  {
     return res.status(400).json(err);
   }
 };
@@ -61,17 +73,20 @@ exports.addproduct = async (req, res) => {
      Desc    : Delete product
      @Access : Pubic
 */
-exports.deletproduct = async (req, res) => {
+exports.deletproduct = async (req, res) =>
+{
   if (!ObjectID.isValid(req.params.id))
     return res
       .status(400)
       .json({ message: `l'ID ${req.params.id} n'est pas reconnu` });
-  try {
+  try
+  {
     if (await product.remove({ _id: req.params.id }).exec())
       return res.status(200).json({
         message: `product avec l'id ${req.params.id} est supprimer avec succées`,
       });
-  } catch (err) {
+  } catch (err)
+  {
     return res.status(500).json({ err });
   }
 };
@@ -80,13 +95,16 @@ exports.deletproduct = async (req, res) => {
      @Access : Pubic
 */
 
-exports.deletAllproducts = async (req, res) => {
-  try {
+exports.deletAllproducts = async (req, res) =>
+{
+  try
+  {
     if (await product.deleteMany())
       return res.status(200).json({
         message: '0 element veiller rajouter un element a la todo liste',
       });
-  } catch (err) {
+  } catch (err)
+  {
     return res.status(500).json({ err });
   }
 };
@@ -95,23 +113,27 @@ exports.deletAllproducts = async (req, res) => {
      @Access : Pubic
 */
 
-exports.updateproduct = (req, res) => {
+exports.updateproduct = (req, res) =>
+{
   if (!ObjectID.isValid(req.params.id))
     return res
       .status(404)
       .json({ message: `l'ID ${req.params.id} n'est pas reconnu` });
   const { error } = productValidations(req.body);
   if (error) return res.status(400).json(error.details[0].message);
-  try {
+  try
+  {
     product.findByIdAndUpdate(
       { _id: req.params.id },
       { $set: { ...req.body } },
       { new: true, useFindAndModify: true, upsert: true },
-      (err, product) => {
+      (err, product) =>
+      {
         !err ? res.status(200).json(product) : res.status(400).json({ err });
       }
     );
-  } catch (err) {
+  } catch (err)
+  {
     return res.status(400).json({ err });
   }
 };

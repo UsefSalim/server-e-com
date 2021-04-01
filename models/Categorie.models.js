@@ -8,7 +8,10 @@ const categorieSchema = Schema({
     required: true,
     unique: true,
   },
-  souscategories: [String],
+  souscategories: {
+    type: [String],
+    unique: true
+  },
   products: [
     {
       type: Schema.Types.ObjectId,
