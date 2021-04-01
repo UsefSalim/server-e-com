@@ -3,12 +3,12 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  getAll,
-  addproduct,
-  deletproduct,
-  deletAllproducts,
-  getOne,
-  updateproduct,
+     getAll,
+     addproduct,
+     deletproduct,
+     deletAllproducts,
+     getOne,
+     updateproduct,
 } = require('../controllers/product.controllers');
 
 /// * ------------------------- product Route
