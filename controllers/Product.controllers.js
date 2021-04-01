@@ -1,10 +1,6 @@
 /// * -------------------------------------------------------------------------- product Controllers
 // ------------- require mongoose ObjectId ----//
 const ObjectID = require('mongoose').Types.ObjectId;
-
-// const Fawn = require('fawn');
-
-// Fawn.init(mongoose);
 // -------------require models----------  //
 const product = require('../models/product.models');
 
